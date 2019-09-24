@@ -15,6 +15,7 @@ import java.util.List;
 
 import id.aplikasi.skripsi.afandi1147050008.adapter.BoyerMooreAdapter;
 import id.aplikasi.skripsi.afandi1147050008.algorithm.BoyerMoore;
+import id.aplikasi.skripsi.afandi1147050008.algorithm.BruteForce;
 import id.aplikasi.skripsi.afandi1147050008.database.DBHelper;
 import id.aplikasi.skripsi.afandi1147050008.model.Hadist;
 import id.aplikasi.skripsi.afandi1147050008.utils.Loading;
@@ -28,6 +29,7 @@ public class SearchingActivity extends AppCompatActivity {
     private List<Hadist> hadistList = new ArrayList<>();
     private List<Hadist> resultList = new ArrayList<>();
     private BoyerMoore boyerMoore;
+    private BruteForce bruteForce;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,22 +57,22 @@ public class SearchingActivity extends AppCompatActivity {
 
     private void getInit() {
         boyerMoore = new BoyerMoore(hadistList);
+        bruteForce = new BruteForce(hadistList);
         btnFind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String asd = "Telah menceritakan kepada kami Al Humaidi Abdullah bin Az Zubair dia berkata, Telah menceritakan kepada kami Sufyan yang berkata, bahwa Telah menceritakan kepada kami Yahya bin Sa'id Al Anshari berkata, telah mengabarkan kepada kami Muhammad bin Ibrahim At Taimi, bahwa dia pernah mendengar Alqamah bin Waqash Al Laitsi berkata; saya pernah mendengar Umar bin Al Khaththab diatas mimbar berkata; saya mendengar Rasulullah shallallahu 'alaihi wasallam bersabda: \"Semua perbuatan tergantung niatnya, dan (balasan) bagi tiap-tiap orang (tergantung) apa yang diniatkan; Barangsiapa niat hijrahnya karena dunia yang ingin digapainya atau karena seorang perempuan yang ingin dinikahinya, maka hijrahnya adalah kepada apa dia diniatkan\"";
-                int result = boyerMoore.findPattern(asd, etSearch.getText().toString());
-                Toast.makeText(SearchingActivity.this, String.valueOf(result), Toast.LENGTH_SHORT).show();
-                /*Loading.show(SearchingActivity.this);
+                Loading.show(SearchingActivity.this);
                 String pattern = etSearch.getText().toString();
-                List<Hadist> res = boyerMoore.doBoyerMoore(pattern);
+                //List<Hadist> res = boyerMoore.doBoyerMoore(pattern);
+                List<Hadist> res = bruteForce.doBruteForce(pattern);
                 if (res.size() > 0) {
                     Loading.hide(SearchingActivity.this);
-                    doResult(boyerMoore.doBoyerMoore(pattern));
+                    Toast.makeText(SearchingActivity.this, String.valueOf(res.size()), Toast.LENGTH_SHORT).show();
+                    doResult(res);
                 } else {
                     Toast.makeText(SearchingActivity.this, "Tidak ada data", Toast.LENGTH_SHORT).show();
                     Loading.hide(SearchingActivity.this);
-                }*/
+                }
             }
         });
     }
