@@ -7,6 +7,8 @@ import id.aplikasi.skripsi.afandi1147050008.model.Hadist;
 
 public class BruteForce {
     private List<Hadist> hadistList;
+    private int starttime;
+    private int endtime;
 
     public BruteForce(List<Hadist> hadistList) {
         this.hadistList = hadistList;
@@ -15,15 +17,11 @@ public class BruteForce {
     public List<Hadist> doBruteForce(String pattern) {
         List<Hadist> result = new ArrayList<>();
         for (int i = 0; i < hadistList.size(); i++) {
+            starttime = (int) System.nanoTime();
             int searchIndex = findPattern(hadistList.get(i).getTerjemahan(), pattern);
-
-            //int starttime = (int) System.nanoTime();
-            //int endtime = (int) System.nanoTime() - starttime;
-            //float second = endtime / 1000F;
-            //etWaktu.setText(second + " Milliseconds");
-            //Log.d("BOOYER MOORE", ": Ada" + searchIndex);
-
             if (searchIndex > -1) {
+                float second = endtime;// / 1000F;
+                hadistList.get(i).setTime(String.valueOf(second));
                 result.add(hadistList.get(i));
             }
         }
@@ -42,6 +40,7 @@ public class BruteForce {
                 j++;
             }
             if (j == plength) {
+                endtime = (int) System.nanoTime() - starttime;
                 return i;
             }
         }

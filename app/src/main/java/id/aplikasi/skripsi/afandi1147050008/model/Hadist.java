@@ -5,6 +5,9 @@ public class Hadist {
     private String kitab;
     private String arab;
     private String terjemahan;
+    private String time;
+    private String bruteTime;
+    private String boyerTime;
 
     public String getNo() {
         return no;
@@ -36,5 +39,29 @@ public class Hadist {
 
     public void setTerjemahan(String terjemahan) {
         this.terjemahan = terjemahan;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getBruteTime() {
+        return bruteTime;
+    }
+
+    public void setBruteTime(String bruteTime) {
+        this.bruteTime = bruteTime;
+    }
+
+    public String getBoyerTime() {
+        return boyerTime;
+    }
+
+    public void setBoyerTime(String boyerTime) {
+        this.boyerTime = boyerTime;
     }
 }

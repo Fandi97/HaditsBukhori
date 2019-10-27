@@ -7,6 +7,8 @@ import id.aplikasi.skripsi.afandi1147050008.model.Hadist;
 
 public class BoyerMoore {
     private List<Hadist> hadistList;
+    private int starttime;
+    private int endtime;
 
     public BoyerMoore(List<Hadist> hadistList) {
         this.hadistList = hadistList;
@@ -15,15 +17,11 @@ public class BoyerMoore {
     public List<Hadist> doBoyerMoore(String pattern) {
         List<Hadist> result = new ArrayList<>();
         for (int i = 0; i < hadistList.size(); i++) {
+            starttime = (int) System.nanoTime();
             int searchIndex = findPattern(hadistList.get(i).getTerjemahan(), pattern);
-
-            //int starttime = (int) System.nanoTime();
-            //int endtime = (int) System.nanoTime() - starttime;
-            //float second = endtime / 1000F;
-            //etWaktu.setText(second + " Milliseconds");
-            //Log.d("BOOYER MOORE", ": Ada" + searchIndex);
-
             if (searchIndex > -1) {
+                float second = endtime;// / 1000F;
+                hadistList.get(i).setTime(String.valueOf(second));
                 result.add(hadistList.get(i));
             }
         }
@@ -43,11 +41,14 @@ public class BoyerMoore {
                     i--;
                     j--;
                 }
-                if (j < 0)
+                if (j < 0) {
+                    endtime = (int) System.nanoTime() - starttime;
                     return (i + 1);
+                }
                 i += Math.max(d1[textC[i]], d2[j]);
             }
-        } catch (Exception ignore){}
+        } catch (Exception ignore) {
+        }
         return -1;
     }
 

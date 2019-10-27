@@ -1,5 +1,6 @@
 package id.aplikasi.skripsi.afandi1147050008.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +32,7 @@ public class BoyerMooreAdapter extends RecyclerView.Adapter<BoyerMooreAdapter.Vi
         return new BoyerMooreAdapter.ViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull BoyerMooreAdapter.ViewHolder holder, int position) {
         Hadist hadist = hadistList.get(position);
@@ -38,6 +40,9 @@ public class BoyerMooreAdapter extends RecyclerView.Adapter<BoyerMooreAdapter.Vi
         holder.title.setText(hadist.getKitab());
         holder.hadist.setText(hadist.getArab());
         holder.terjemahan.setText(hadist.getTerjemahan());
+
+        holder.timeBrute.setText("Brute Force = " + hadist.getBruteTime());
+        holder.timeBoyer.setText("Boyer Moore = " + hadist.getBoyerTime());
     }
 
     @Override
@@ -50,12 +55,16 @@ public class BoyerMooreAdapter extends RecyclerView.Adapter<BoyerMooreAdapter.Vi
         private TextView title;
         private TextView hadist;
         private TextView terjemahan;
+        private TextView timeBrute;
+        private TextView timeBoyer;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.tvKitab);
             hadist = itemView.findViewById(R.id.tvHadist);
             terjemahan = itemView.findViewById(R.id.tvTerjemahan);
+            timeBrute = itemView.findViewById(R.id.tvBrute);
+            timeBoyer = itemView.findViewById(R.id.tvBoyer);
         }
     }
 }
