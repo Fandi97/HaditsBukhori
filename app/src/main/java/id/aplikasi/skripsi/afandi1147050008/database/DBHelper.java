@@ -32,6 +32,7 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         List<Hadist> result = new ArrayList<>();
 
+        //queri untuk ambil database hadist
         String qr = "SELECT * FROM " + DB.TABLE_NAME;
         Cursor cursor = db.rawQuery(qr, null);
         if (cursor.moveToFirst()) {

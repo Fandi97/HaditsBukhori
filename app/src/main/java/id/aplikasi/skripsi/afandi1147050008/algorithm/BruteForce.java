@@ -1,5 +1,7 @@
 package id.aplikasi.skripsi.afandi1147050008.algorithm;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,14 +19,18 @@ public class BruteForce {
     public List<Hadist> doBruteForce(String pattern) {
         List<Hadist> result = new ArrayList<>();
         for (int i = 0; i < hadistList.size(); i++) {
+
             starttime = (int) System.nanoTime();
             int searchIndex = findPattern(hadistList.get(i).getTerjemahan(), pattern);
             if (searchIndex > -1) {
                 float second = endtime;// / 1000F;
-                hadistList.get(i).setTime(String.valueOf(second));
+//                hadistList.get(i).setTime(String.valueOf(second));
+                hadistList.get(i).setBruteTime(String.valueOf(second));
+
                 result.add(hadistList.get(i));
             }
         }
+
         return result;
     }
 

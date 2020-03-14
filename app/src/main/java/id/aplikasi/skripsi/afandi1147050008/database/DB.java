@@ -20,5 +20,5 @@ public class DB {
 
     static final String CREATE_TABLE =
             "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + "(" + NO + " INTEGER, " + KITAB + " TEXT, " +
-                    ARAB + " TEXT, " + TERJEMAH + " TEXT)";
+                    ARAB + " TEXT, " + TERJEMAH + " VARCHAR)";
 }

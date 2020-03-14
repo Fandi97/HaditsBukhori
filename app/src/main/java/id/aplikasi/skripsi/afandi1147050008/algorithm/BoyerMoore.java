@@ -21,7 +21,7 @@ public class BoyerMoore {
             int searchIndex = findPattern(hadistList.get(i).getTerjemahan(), pattern);
             if (searchIndex > -1) {
                 float second = endtime;// / 1000F;
-                hadistList.get(i).setTime(String.valueOf(second));
+                hadistList.get(i).setBoyerTime(String.valueOf(second));
                 result.add(hadistList.get(i));
             }
         }

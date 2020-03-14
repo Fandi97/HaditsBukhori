@@ -15,34 +15,34 @@ import java.util.List;
 import id.aplikasi.skripsi.afandi1147050008.R;
 import id.aplikasi.skripsi.afandi1147050008.model.Hadist;
 
-public class BoyerMooreAdapter extends RecyclerView.Adapter<BoyerMooreAdapter.ViewHolder> {
+public class HadistAdapter extends RecyclerView.Adapter<HadistAdapter.ViewHolder> {
 
     private List<Hadist> hadistList;
     private Context context;
 
-    public BoyerMooreAdapter(List<Hadist> hadistList, Context context) {
+    public HadistAdapter(List<Hadist> hadistList, Context context) {
         this.hadistList = hadistList;
         this.context = context;
     }
 
     @NonNull
     @Override
-    public BoyerMooreAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public HadistAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_boyer_moore, parent, false);
-        return new BoyerMooreAdapter.ViewHolder(view);
+        return new HadistAdapter.ViewHolder(view);
     }
 
     @SuppressLint("SetTextI18n")
     @Override
-    public void onBindViewHolder(@NonNull BoyerMooreAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull HadistAdapter.ViewHolder holder, int position) {
         Hadist hadist = hadistList.get(position);
 
-        holder.title.setText(hadist.getKitab());
+        holder.title.setText("Kitab: "+hadist.getKitab()+", No: "+hadist.getNo());
         holder.hadist.setText(hadist.getArab());
         holder.terjemahan.setText(hadist.getTerjemahan());
 
-        holder.timeBrute.setText("Brute Force = " + hadist.getBruteTime());
-        holder.timeBoyer.setText("Boyer Moore = " + hadist.getBoyerTime());
+        holder.timeBrute.setText("Brute Force = " + hadist.getBruteTime()+" ns");
+        holder.timeBoyer.setText("Boyer Moore = " + hadist.getBoyerTime()+" ns");
     }
 
     @Override

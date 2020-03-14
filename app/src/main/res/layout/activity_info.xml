@@ -17,6 +17,7 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:background="@color/Dodgerblue"
             android:padding="10dp">
 
@@ -30,17 +31,18 @@
 
 
         </RelativeLayout>
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/border"
             android:padding="10dp">
 
+
             <TextView
+                android:id="@+id/tvInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/deskripsi" />
+                android:text="Aplikasi ini berisikan hadits bukhori. aplikasi ini dibuat untuk mempermudah user dalam mencari ilmu hadits yang diinginkan. Aplikasi ini pula dibuat untuk memenuhi salah satu syarat menyelesaikan studi di jurusan Teknik Informatika Universitas Islam Negeri Sunan Gunung Djati Bandung. Selain menampilkan hasil hadist yang dicari, aplikasi ini juga menampilkan waktu pencarian dari algoritma Boyer Moore dan algoritma Brute Force.    " />
 
         </RelativeLayout>
 
@@ -61,19 +63,19 @@
 
 
         </RelativeLayout>
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/border"
             android:padding="10dp">
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/petunjuk" />
+                android:text="1. Pada tampilan utama aplikasi pilih menu cari \n2. Cari hadits yang diinginkan dengan cara memasukan kata \n3. Aplikasi akan menampilkan hasil pencarian beserta waktu pencarian" />
+
 
         </RelativeLayout>
+
 
 
 
@@ -92,4 +94,13 @@
             android:layout_centerHorizontal="true"/>
 
     </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/Dodgerblue"
+        android:padding="10dp">
+
+    </RelativeLayout>
+
 </RelativeLayout>

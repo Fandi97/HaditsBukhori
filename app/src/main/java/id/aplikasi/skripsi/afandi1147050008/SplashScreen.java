@@ -17,6 +17,9 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+
+                //Tambahkan permintaan permission read/write external
+
                 Intent home = new Intent(SplashScreen.this, MainActivity.class);
                 startActivity(home);
                 finish();
